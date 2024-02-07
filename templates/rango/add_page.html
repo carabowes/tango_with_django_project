@@ -1,0 +1,27 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Add a Page
+{% endblock %}
+
+        <div>
+            <form id="add_page_form" method="post" action="/rango/category/{{ category.slug }}/add_page/">
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                    {{ field.errors }}
+                    {{ field.help_text }}
+                    {{ field }}
+                {% endfor %}
+                <input type="submit" name="submit" value="Add Page" />
+            </form>
+        </div>
+        <!-- Link back to the Category page -->
+        <div>
+            <a href="{% url 'rango:show_category' category.slug %}">Return to {{ category.name }}</a>
+        </div>
+    </body>
+</html>
