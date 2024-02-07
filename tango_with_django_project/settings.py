@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/rango/login/'
 
 # Application definition
 
@@ -85,9 +86,11 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
 
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
